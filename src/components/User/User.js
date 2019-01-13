@@ -19,15 +19,15 @@ const styles = {
 };
 
 function User(props) {
-  const { classes } = props;
+  const { classes, userData } = props;
   return (
     <Card className={classes.card}>
       <CardActionArea>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Username
+            {userData.name}
           </Typography>
-          <Typography component="p">Profile description here</Typography>
+          <Typography component="p">{userData.bio}</Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
