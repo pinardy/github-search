@@ -8,7 +8,7 @@ I am creating this ReactJS application to practise my ReactJS knowledge. This ap
 
 - [x] There is a search bar to let the user search by username (login name)
 - [ ] While searching, the application shows an animated loading indicator made by CSS (using gif image is not allowed)
-- [ ] After the search is completed, the application shows the list of users along with their avatar and their username on the same page
+- [x] After the search is completed, the application shows the list of users along with their avatar and their username on the same page
 - [ ] If the results are not complete in one page, the pagination is shown on the screen
 - [ ] When a list item is clicked, the application is navigated to a new page that display the parsed JSON payload of that user
 - [ ] The new page also has to display the list of the user's repositories, followers and following
@@ -31,3 +31,4 @@ I am creating this ReactJS application to practise my ReactJS knowledge. This ap
 - [ ] The search input does the searching as you type (See google search as an example)
 - [ ] There is animated transition between pages
 - [ ] The application supports theming and can easily be switched between themes
+- [ ] Unit tests

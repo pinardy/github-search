@@ -59,7 +59,7 @@ const Search = props => {
         <SearchIcon />
       </div>
       <InputBase
-        placeholder="Search…"
+        placeholder="Search user…"
         classes={{
           root: classes.inputRoot,
           input: classes.inputInput
