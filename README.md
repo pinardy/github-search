@@ -7,7 +7,7 @@ I am creating this ReactJS application to practise my ReactJS knowledge. This ap
 ## Requirements
 
 - [x] There is a search bar to let the user search by username (login name)
-- [ ] While searching, the application shows an animated loading indicator made by CSS (using gif image is not allowed)
+- [x] While searching, the application shows an animated loading indicator made by CSS (using gif image is not allowed)
 - [x] After the search is completed, the application shows the list of users along with their avatar and their username on the same page
 - [ ] If the results are not complete in one page, the pagination is shown on the screen
 - [ ] When a list item is clicked, the application is navigated to a new page that display the parsed JSON payload of that user

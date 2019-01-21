@@ -3,39 +3,49 @@ import Header from "../components/Header/Header";
 import Users from "../components/User/Users";
 
 import { isEmpty } from "../utils/isEmpty";
+import Spinner from "../components/Layouts/Spinner";
 
 class MainPage extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      usersList: []
+      usersList: [],
+      isLoading: false
     };
   }
 
   searchUserHandler = e => {
     if (e.keyCode === 13) {
       if (!isEmpty(e.target.value)) {
+        this.setState({ isLoading: true });
         const name = e.target.value;
         fetch(`https://api.github.com/search/users?q=${name}`)
           .then(response => response.json())
-          .then(data => this.setState({ usersList: data.items }));
+          .then(data =>
+            this.setState({ usersList: data.items, isLoading: false })
+          );
       }
-      console.log(this.state.usersList);
-      console.log(isEmpty(this.state.usersList));
     }
   };
 
   //TODO: Spinner when loading
   render() {
-    return (
-      <div className="MainPage">
-        <Header searchUserHandler={this.searchUserHandler} />
-        {!isEmpty(this.state.usersList) ? (
+    if (this.state.isLoading) {
+      return (
+        <div className="MainPage">
+          <Header searchUserHandler={this.searchUserHandler} />
+          <Spinner />
+        </div>
+      );
+    } else {
+      return (
+        <div className="MainPage">
+          <Header searchUserHandler={this.searchUserHandler} />
           <Users userData={this.state.usersList} />
-        ) : null}
-      </div>
-    );
+        </div>
+      );
+    }
   }
 }
 
