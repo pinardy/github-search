@@ -1,9 +1,14 @@
 import React, { Component } from "react";
 import Header from "../components/Header/Header";
 import Users from "../components/User/Users";
+import Spinner from "../components/Layouts/Spinner";
 
 import { isEmpty } from "../utils/isEmpty";
-import Spinner from "../components/Layouts/Spinner";
+
+// Redux
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { searchUsers, setLoading } from "../components/actions/searchActions";
 
 class MainPage extends Component {
   constructor(props) {
@@ -18,20 +23,17 @@ class MainPage extends Component {
   searchUserHandler = e => {
     if (e.keyCode === 13) {
       if (!isEmpty(e.target.value)) {
-        this.setState({ isLoading: true });
+        this.props.setLoading();
         const name = e.target.value;
         fetch(`https://api.github.com/search/users?q=${name}`)
           .then(response => response.json())
-          .then(data =>
-            this.setState({ usersList: data.items, isLoading: false })
-          );
+          .then(data => this.props.searchUsers(data));
       }
     }
   };
 
-  //TODO: Spinner when loading
   render() {
-    if (this.state.isLoading) {
+    if (this.props.isLoading) {
       return (
         <div className="MainPage">
           <Header searchUserHandler={this.searchUserHandler} />
@@ -42,11 +44,23 @@ class MainPage extends Component {
       return (
         <div className="MainPage">
           <Header searchUserHandler={this.searchUserHandler} />
-          <Users userData={this.state.usersList} />
+          <Users userData={this.props.usersList} />
         </div>
       );
     }
   }
 }
 
-export default MainPage;
+const mapStateToProps = state => ({
+  usersList: state.search.usersList,
+  isLoading: state.search.isLoading
+});
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({ searchUsers, setLoading }, dispatch);
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MainPage);

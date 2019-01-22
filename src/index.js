@@ -4,14 +4,21 @@ import "./index.css";
 import MainPage from "./views/MainPage";
 import * as serviceWorker from "./serviceWorker";
 
-// import { Route, Router, Switch } from "react-router";
-// import { Provider } from "react-redux";
+import { Route, Router, Switch } from "react-router";
+import { createBrowserHistory } from "history";
+import { Provider } from "react-redux";
+import Store from "./store";
 
-//TODO: Implement Provider, Router, Switch, Route here
+const history = createBrowserHistory();
 
 ReactDOM.render(
-  <MainPage />,
-
+  <Provider store={Store}>
+    <Router history={history}>
+      <Switch>
+        <Route exact path="/" component={MainPage} />
+      </Switch>
+    </Router>
+  </Provider>,
   document.getElementById("root")
 );
 

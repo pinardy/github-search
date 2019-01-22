@@ -12,7 +12,7 @@ I am creating this ReactJS application to practise my ReactJS knowledge. This ap
 - [ ] If the results are not complete in one page, the pagination is shown on the screen
 - [ ] When a list item is clicked, the application is navigated to a new page that display the parsed JSON payload of that user
 - [ ] The new page also has to display the list of the user's repositories, followers and following
-- [ ] The application is built by [React](https://github.com/facebook/react) and [Redux](https://github.com/reactjs/redux)
+- [x] The application is built by [React](https://github.com/facebook/react) and [Redux](https://github.com/reactjs/redux)
 - [ ] [Webpack](https://github.com/webpack/webpack) is being used to build the application
 - [ ] The application style is built by one of the CSS preprocessors or CSS-in-JS
 - [ ] The application has to be responsive and optimised for mobile
