@@ -7,6 +7,12 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 
+// Redux
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { navigateTo } from "../../actions/routingActions";
+import { updateVisitedUser } from "../../actions/userActions";
+
 const styles = {
   card: {
     maxWidth: 345,
@@ -18,11 +24,23 @@ const styles = {
   }
 };
 
+const goToUserProfile = props => {
+  const username = props.user.login;
+  props.history.push("/user/" + username);
+  props.navigateTo("UserProfile");
+  props.updateVisitedUser(props.user);
+};
+
 function UserCard(props) {
   const { classes, user } = props;
 
   return (
-    <div className={classes.flexStyle}>
+    <div
+      className={classes.flexStyle}
+      onClick={() => {
+        goToUserProfile(props);
+      }}
+    >
       <Card className={classes.card}>
         <CardActionArea>
           <CardContent>
@@ -37,4 +55,13 @@ function UserCard(props) {
   );
 }
 
-export default withStyles(styles)(UserCard);
+const matchDispatchToProps = dispatch => {
+  return bindActionCreators({ navigateTo, updateVisitedUser }, dispatch);
+};
+
+export default withStyles(styles)(
+  connect(
+    null,
+    matchDispatchToProps
+  )(UserCard)
+);
