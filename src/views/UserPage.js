@@ -6,7 +6,7 @@ import Spinner from "../components/Layouts/Spinner";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { setLoading } from "../actions/searchActions";
-import UserProfile from "../components/User/UserProfile";
+import UserProfileContainer from "../components/User/UserProfileContainer";
 
 class UserPage extends Component {
   constructor(props) {
@@ -20,15 +20,21 @@ class UserPage extends Component {
     if (this.props.isLoading) {
       return (
         <div className="MainPage">
-          <Header searchUserHandler={this.searchUserHandler} />
+          <Header
+            searchUserHandler={this.searchUserHandler}
+            history={this.props.history}
+          />
           <Spinner />
         </div>
       );
     } else {
       return (
         <div className="MainPage">
-          <Header searchUserHandler={this.searchUserHandler} />
-          <UserProfile userDetails={this.props.userDetails} />
+          <Header
+            searchUserHandler={this.searchUserHandler}
+            history={this.props.history}
+          />
+          <UserProfileContainer userDetails={this.props.userDetails} />
         </div>
       );
     }

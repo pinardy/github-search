@@ -35,13 +35,13 @@ function UserCard(props) {
   const { classes, user } = props;
 
   return (
-    <div
-      className={classes.flexStyle}
-      onClick={() => {
-        goToUserProfile(props);
-      }}
-    >
-      <Card className={classes.card}>
+    <div className={classes.flexStyle}>
+      <Card
+        className={classes.card}
+        onClick={() => {
+          goToUserProfile(props);
+        }}
+      >
         <CardActionArea>
           <CardContent>
             <img src={user.avatar_url} height="80" width="80" alt="new" />

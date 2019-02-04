@@ -36,14 +36,20 @@ class MainPage extends Component {
     if (this.props.isLoading) {
       return (
         <div className="MainPage">
-          <Header searchUserHandler={this.searchUserHandler} />
+          <Header
+            searchUserHandler={this.searchUserHandler}
+            history={this.props.history}
+          />
           <Spinner />
         </div>
       );
     } else {
       return (
         <div className="MainPage">
-          <Header searchUserHandler={this.searchUserHandler} />
+          <Header
+            searchUserHandler={this.searchUserHandler}
+            history={this.props.history}
+          />
           <Users userData={this.props.usersList} history={this.props.history} />
         </div>
       );

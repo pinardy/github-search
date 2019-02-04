@@ -32,10 +32,15 @@ const styles = theme => ({
   }
 });
 
+const routeToHome = history => {
+  history.push("/");
+};
+
 const Header = props => {
-  const { classes } = props;
+  const { classes, history } = props;
+
   return (
-    <div className={classes.root}>
+    <div className={classes.root} onClick={() => routeToHome(history)}>
       <AppBar position="static">
         <Toolbar className={classes.headerBackground}>
           <img src={GithubLogo} alt="GithubLogo" width="50" height="50" />
