@@ -88,7 +88,7 @@ class UserProfileContainer extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <UserProfileHeader
           avatar_url={this.state.avatar_url}
           name={this.state.name}
@@ -102,9 +102,8 @@ class UserProfileContainer extends Component {
           repos={this.state.repos}
           profilePage={this.state.profilePage}
         />
-
         <UserProfileContent />
-      </div>
+      </>
     );
   }
 }

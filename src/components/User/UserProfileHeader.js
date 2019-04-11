@@ -28,19 +28,11 @@ const styles = theme => ({
     flexDirection: "row",
     alignItems: "flex-end"
   },
-  nameTitle: {
-    paddingRight: "10px"
-  },
   userInfo: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     marginRight: "20px"
-  },
-  userInfoContainer: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "start"
   },
   iconContainer: {
     display: "flex",
@@ -48,9 +40,6 @@ const styles = theme => ({
   },
   icon: {
     paddingRight: "5px"
-  },
-  padBottom: {
-    paddingBottom: "10px"
   }
 });
 
@@ -77,19 +66,17 @@ function UserProfileHeader(props) {
       </div>
       <div>
         <div className={classes.nameContainer}>
-          <div className={classes.nameTitle}>
-            <Typography variant="h5">{name}</Typography>
-          </div>
+          <Typography style={{ paddingRight: "10px" }} variant="h5">
+            {name}
+          </Typography>
           <Typography>
             <a href={profilePage}>@{username}</a>
           </Typography>
         </div>
 
-        <div className={classes.padBottom}>
-          <Typography>{bio}</Typography>
-        </div>
+        <Typography style={{ paddingBottom: "10px" }}>{bio}</Typography>
 
-        <div className={classes.padBottom}>
+        <>
           <div className={classes.iconContainer}>
             <CompanyIcon className={classes.icon} />
             <Typography>{company}</Typography>
@@ -106,9 +93,15 @@ function UserProfileHeader(props) {
               <a href={blog}>{blog}</a>
             </Typography>
           </div>
-        </div>
+        </>
 
-        <div className={classes.userInfoContainer}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "start"
+          }}
+        >
           <div className={classes.userInfo}>
             <Typography variant="h5">{followers}</Typography>
             <Typography>Followers </Typography>

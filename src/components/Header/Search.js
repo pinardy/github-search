@@ -1,10 +1,18 @@
 import React from "react";
 
+// Utils
+import { isEmpty } from "../../utils/isEmpty";
+
 // Material-UI
 import { withStyles } from "@material-ui/core/styles";
 import SearchIcon from "@material-ui/icons/Search";
 import InputBase from "@material-ui/core/InputBase";
 import { fade } from "@material-ui/core/styles/colorManipulator";
+
+// Redux
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { searchUsers, setLoading } from "../../actions/searchActions";
 
 const styles = theme => ({
   search: {
@@ -51,7 +59,19 @@ const styles = theme => ({
   }
 });
 
-const Search = props => {
+function Search(props) {
+  const searchUserHandler = e => {
+    if (e.keyCode === 13) {
+      if (!isEmpty(e.target.value)) {
+        props.setLoading();
+        const name = e.target.value;
+        fetch(`https://api.github.com/search/users?q=${name}`)
+          .then(response => response.json())
+          .then(data => props.searchUsers(data));
+      }
+    }
+  };
+
   const { classes } = props;
   return (
     <div className={classes.search}>
@@ -64,10 +84,17 @@ const Search = props => {
           root: classes.inputRoot,
           input: classes.inputInput
         }}
-        onKeyDown={props.searchUserHandler}
+        onKeyDown={searchUserHandler}
       />
     </div>
   );
+}
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({ searchUsers, setLoading }, dispatch);
 };
 
-export default withStyles(styles)(Search);
+export default connect(
+  null,
+  mapDispatchToProps
+)(withStyles(styles)(Search));

@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-import Header from "../components/Header/Header";
 import Spinner from "../components/Layouts/Spinner";
 
 // Redux
-import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { setLoading } from "../actions/searchActions";
 import UserProfileContainer from "../components/User/UserProfileContainer";
 
 class UserPage extends Component {
@@ -18,25 +15,9 @@ class UserPage extends Component {
   }
   render() {
     if (this.props.isLoading) {
-      return (
-        <div className="MainPage">
-          <Header
-            searchUserHandler={this.searchUserHandler}
-            history={this.props.history}
-          />
-          <Spinner />
-        </div>
-      );
+      return <Spinner />;
     } else {
-      return (
-        <div className="MainPage">
-          <Header
-            searchUserHandler={this.searchUserHandler}
-            history={this.props.history}
-          />
-          <UserProfileContainer userDetails={this.props.userDetails} />
-        </div>
-      );
+      return <UserProfileContainer userDetails={this.props.userDetails} />;
     }
   }
 }
@@ -46,11 +27,7 @@ const mapStateToProps = state => ({
   userDetails: state.user.userDetails
 });
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ setLoading }, dispatch);
-};
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(UserPage);

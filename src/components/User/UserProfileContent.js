@@ -18,8 +18,10 @@ const styles = theme => ({
 });
 
 function UserProfileContent(props) {
+  const { classes } = props;
+
   return (
-    <Paper>
+    <Paper className={classes.paper} elevation={0}>
       <Typography> Content </Typography>
     </Paper>
   );

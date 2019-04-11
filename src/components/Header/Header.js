@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import GithubLogo from "./../../assets/github-logo.png";
-import Search from "./../Search/Search";
+import Search from "./Search";
 
 // Material-UI
 import AppBar from "@material-ui/core/AppBar";
@@ -40,23 +40,25 @@ const Header = props => {
   const { classes, history } = props;
 
   return (
-    <div className={classes.root} onClick={() => routeToHome(history)}>
-      <AppBar position="static">
-        <Toolbar className={classes.headerBackground}>
-          <img src={GithubLogo} alt="GithubLogo" width="50" height="50" />
-          <Typography
-            className={classes.title}
-            variant="title"
-            color="inherit"
-            noWrap
-          >
-            Github User Search
-          </Typography>
-          <div className={classes.grow} />
-          <Search searchUserHandler={props.searchUserHandler} />
-        </Toolbar>
-      </AppBar>
-    </div>
+    <AppBar
+      position="static"
+      className={classes.root}
+      onClick={() => routeToHome(history)}
+    >
+      <Toolbar className={classes.headerBackground}>
+        <img src={GithubLogo} alt="GithubLogo" width="50" height="50" />
+        <Typography
+          className={classes.title}
+          variant="title"
+          color="inherit"
+          noWrap
+        >
+          Github User Search
+        </Typography>
+        <div className={classes.grow} />
+        <Search />
+      </Toolbar>
+    </AppBar>
   );
 };
 
