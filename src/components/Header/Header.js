@@ -52,6 +52,7 @@ const Header = props => {
           variant="title"
           color="inherit"
           noWrap
+          style={{marginLeft: 5}}
         >
           Github User Search
         </Typography>

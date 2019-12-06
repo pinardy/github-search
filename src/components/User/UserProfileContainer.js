@@ -8,7 +8,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 
 //TODO: Exception handling for users without company, location, blog
 
-const styles = theme => ({
+const styles = () => ({
   paper: {
     margin: "15px 150px 15px 150px",
     display: "flex",
@@ -54,7 +54,7 @@ const styles = theme => ({
 
 class UserProfileContainer extends Component {
   state = {
-    avatar_url: "",
+    avatarUrl: "",
     name: "",
     username: "",
     bio: "",
@@ -63,7 +63,9 @@ class UserProfileContainer extends Component {
     blog: "",
     followers: 0,
     following: 0,
-    repos: 0,
+    reposCount: 0,
+    reposUrl: "",
+    repos: [],
     profilePage: ""
   };
 
@@ -71,7 +73,7 @@ class UserProfileContainer extends Component {
     axios.get(this.props.userDetails.url).then(res => {
       console.log(res.data);
       this.setState({
-        avatar_url: res.data.avatar_url,
+        avatarUrl: res.data.avatar_url,
         name: res.data.name,
         username: res.data.login,
         bio: res.data.bio,
@@ -80,9 +82,16 @@ class UserProfileContainer extends Component {
         blog: res.data.blog,
         followers: res.data.followers,
         following: res.data.following,
-        repos: res.data.public_repos,
+        reposCount: res.data.public_repos,
+        reposUrl: res.data.repos_url,
         profilePage: res.data.html_url
       });
+
+      axios.get(res.data.repos_url).then(res => {
+        this.setState({
+          repos: res.data
+        })
+      })
     });
   }
 
@@ -90,7 +99,7 @@ class UserProfileContainer extends Component {
     return (
       <>
         <UserProfileHeader
-          avatar_url={this.state.avatar_url}
+          avatarUrl={this.state.avatarUrl}
           name={this.state.name}
           username={this.state.username}
           bio={this.state.bio}
@@ -99,10 +108,10 @@ class UserProfileContainer extends Component {
           blog={this.state.blog}
           followers={this.state.followers}
           following={this.state.following}
-          repos={this.state.repos}
+          reposCount={this.state.reposCount}
           profilePage={this.state.profilePage}
         />
-        <UserProfileContent />
+        <UserProfileContent repos={this.state.repos}/>
       </>
     );
   }

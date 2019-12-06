@@ -1,8 +1,17 @@
 # Github User Search
 
+
+
 ## Background
 
 I am creating this ReactJS application to practise my ReactJS knowledge. This application consumes the [Github API](https://developer.github.com/v3/)
+
+## Instructions
+
+1. Clone the repository
+2. Install dependences yarn
+3. Run the application via `yarn start`.  
+This starts the app in your browser at http://localhost:3000/.
 
 ## Requirements
 
@@ -11,12 +20,10 @@ I am creating this ReactJS application to practise my ReactJS knowledge. This ap
 - [x] After the search is completed, the application shows the list of users along with their avatar and their username on the same page
 - [ ] If the results are not complete in one page, the pagination is shown on the screen
 - [x] When a list item is clicked, the application is navigated to a new page that display the parsed JSON payload of that user
-- [ ] The new page also has to display the list of the user's repositories, followers and following
+- [x] The new page also has to display the list of the user's repositories, followers and following
 - [x] The application is built by [React](https://github.com/facebook/react) and [Redux](https://github.com/reactjs/redux)
-- [ ] [Webpack](https://github.com/webpack/webpack) is being used to build the application
-- [ ] The application style is built by one of the CSS preprocessors or CSS-in-JS
+- [x] [Webpack](https://github.com/webpack/webpack) is being used to build the application
 - [ ] The application has to be responsive and optimised for mobile
-- [ ] A documentation on how the application works and how to set up and build the project is provided
 - [ ] The application is production ready (**HINT:** try Google’s PageSpeed or Lighthouse)
 
 ## Bonus points
@@ -27,7 +34,7 @@ I am creating this ReactJS application to practise my ReactJS knowledge. This ap
 - [ ] All pages' URL is reusable - meaning it can be copied and pasted on different browser and still shows the same result
 - [ ] All pages are SEO optimised
 - [ ] The project supports code splitting for each pages
-- [ ] The results list also asynchronous-ly shows the number of followers and following of each user without going the user page
+- [ ] The results list also asynchronously shows the number of followers and following of each user without going the user page
 - [ ] The search input does the searching as you type (See google search as an example)
 - [ ] There is animated transition between pages
 - [ ] The application supports theming and can easily be switched between themes

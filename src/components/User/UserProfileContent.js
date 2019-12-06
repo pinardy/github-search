@@ -3,13 +3,13 @@ import React from "react";
 // Material-UI
 import Paper from "@material-ui/core/Paper";
 import withStyles from "@material-ui/core/styles/withStyles";
-import Typography from "@material-ui/core/Typography";
+import UserRepoCard from "./UserRepoCard";
 
-const styles = theme => ({
-  paper: {
+const styles = () => ({
+  repoCard: {
     margin: "15px 150px 15px 150px",
-    display: "flex",
-    flexDirection: "row",
+    justifyContent: "center",
+    flexDirection: "column",
     alignItems: "flex-start",
     alignContent: "space-between",
     backgroundColor: "#efefef",
@@ -18,11 +18,15 @@ const styles = theme => ({
 });
 
 function UserProfileContent(props) {
-  const { classes } = props;
+  const { classes, repos } = props
+
+  console.log(repos)
 
   return (
-    <Paper className={classes.paper} elevation={0}>
-      <Typography> Content </Typography>
+    <Paper className={classes.repoCard} elevation={0}>
+      {repos.map((repo, id) => (
+        <UserRepoCard key={id} repo={repo}/>
+      ))}
     </Paper>
   );
 }

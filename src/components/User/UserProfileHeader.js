@@ -10,7 +10,7 @@ import CompanyIcon from "@material-ui/icons/People";
 import LocationIcon from "@material-ui/icons/LocationOn";
 import BlogIcon from "@material-ui/icons/Link";
 
-const styles = theme => ({
+const styles = () => ({
   paper: {
     margin: "15px 150px 15px 150px",
     display: "flex",
@@ -46,7 +46,7 @@ const styles = theme => ({
 function UserProfileHeader(props) {
   const {
     classes,
-    avatar_url,
+    avatarUrl,
     name,
     username,
     bio,
@@ -55,14 +55,14 @@ function UserProfileHeader(props) {
     blog,
     followers,
     following,
-    repos,
+    reposCount,
     profilePage
   } = props;
 
   return (
     <Paper className={classes.paper} elevation={0}>
       <div className={classes.imgLogo}>
-        <img src={avatar_url} height="200" width="200" alt="new" />
+        <img src={avatarUrl} height="200" width="200" alt="new" />
       </div>
       <div>
         <div className={classes.nameContainer}>
@@ -113,7 +113,7 @@ function UserProfileHeader(props) {
           </div>
 
           <div className={classes.userInfo}>
-            <Typography variant="h5">{repos}</Typography>
+            <Typography variant="h5">{reposCount}</Typography>
             <Typography>Repos </Typography>
           </div>
         </div>
