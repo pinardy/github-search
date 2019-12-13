@@ -9,8 +9,8 @@ I am creating this ReactJS application to practise my ReactJS knowledge. This ap
 ## Instructions
 
 1. Clone the repository
-2. Install dependences yarn
-3. Run the application via `yarn start`.  
+2. Install dependences using `npm install` or `yarn` 
+3. Run the application via `npm start` or `yarn start`.  
 This starts the app in your browser at http://localhost:3000/.
 
 ## Requirements
@@ -36,6 +36,6 @@ This starts the app in your browser at http://localhost:3000/.
 - [ ] The project supports code splitting for each pages
 - [ ] The results list also asynchronously shows the number of followers and following of each user without going the user page
 - [ ] The search input does the searching as you type (See google search as an example)
-- [ ] There is animated transition between pages
+- [x] There is animated transition between pages
 - [ ] The application supports theming and can easily be switched between themes
 - [ ] Unit tests
