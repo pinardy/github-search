@@ -13,7 +13,6 @@ import { withStyles } from "@material-ui/core/styles";
 const styles = theme => ({
   root: {
     width: "100%",
-    cursor: "pointer"
   },
   grow: {
     flexGrow: 1
@@ -28,8 +27,13 @@ const styles = theme => ({
       display: "block"
     }
   },
-  headerBackground: {
+  toolbar: {
     background: "black"
+  },
+  logo: {
+    display: "flex",
+    alignItems: "center",
+    cursor: "pointer"
   }
 });
 
@@ -47,19 +51,23 @@ const Header = props => {
           position="static"
           className={classes.root}
           elevation={0} // Removes box-shadow
-          onClick={() => routeToHome(history)}
         >
-          <Toolbar className={classes.headerBackground}>
+          <Toolbar 
+            className={classes.toolbar} 
+            onClick={() => routeToHome(history)}
+          >
+            <div className={classes.logo}>
             <img src={GithubLogo} alt="GithubLogo" width="50" height="50" />
-            <Typography
-              className={classes.title}
-              variant="title"
-              color="inherit"
-              noWrap
-              style={{marginLeft: 5}}
-            >
-              Github User Search
-            </Typography>
+              <Typography
+                className={classes.title}
+                variant="title"
+                color="inherit"
+                noWrap
+                style={{marginLeft: 5}}
+              >
+                Github User Search
+              </Typography>
+            </div>
             <div className={classes.grow} />
             <Search />
           </Toolbar>

@@ -14,9 +14,9 @@ const styles = () => ({
   paper: {
     display: "flex",
     flexDirection: "row",
+    flexWrap: "wrap",
     alignItems: "flex-start",
     alignContent: "space-between",
-    backgroundColor: "#efefef",
     padding: `20px 20px 10px 20px`
   },
   imgLogo: {

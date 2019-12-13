@@ -14,21 +14,21 @@ function Users(props) {
           </p>
         </div>
       : null}
-    <ReactCSSTransitionGroup
-      transitionName="fade"
-      transitionAppear={true}
-      transitionAppearTimeout={700}
-      transitionEnterTimeout={500}
-      transitionLeaveTimeout={500}
-    >
-    <div style={{ margin: "0 auto", maxWidth: 1020 }}>
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {userData.map((user, id) => (
-          <UserCard key={id} user={user} history={history} />
-        ))}
+      <ReactCSSTransitionGroup
+        transitionName="fade"
+        transitionAppear={true}
+        transitionAppearTimeout={700}
+        transitionEnterTimeout={500}
+        transitionLeaveTimeout={500}
+      >
+      <div style={{ margin: "0 auto", maxWidth: 1020 }}>
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
+          {userData.map((user, id) => (
+            <UserCard key={id} user={user} history={history} />
+          ))}
+        </div>
       </div>
-    </div>
-    </ReactCSSTransitionGroup>
+      </ReactCSSTransitionGroup>
     </>
   );
 }

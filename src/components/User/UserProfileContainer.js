@@ -17,7 +17,6 @@ const styles = () => ({
     flexDirection: "row",
     alignItems: "flex-start",
     alignContent: "space-between",
-    backgroundColor: "#efefef",
     padding: `20px 10px 10px 10px`
   },
   imgLogo: {
