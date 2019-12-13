@@ -3,6 +3,8 @@ import axios from "axios";
 import UserProfileHeader from "./UserProfileHeader";
 import UserProfileContent from "./UserProfileContent";
 
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+
 // Material-UI
 import withStyles from "@material-ui/core/styles/withStyles";
 
@@ -97,22 +99,30 @@ class UserProfileContainer extends Component {
 
   render() {
     return (
-      <div style={{ margin: "0 auto", maxWidth: 1020, marginTop: 30}}>
-        <UserProfileHeader
-          avatarUrl={this.state.avatarUrl}
-          name={this.state.name}
-          username={this.state.username}
-          bio={this.state.bio}
-          company={this.state.company}
-          location={this.state.location}
-          blog={this.state.blog}
-          followers={this.state.followers}
-          following={this.state.following}
-          reposCount={this.state.reposCount}
-          profilePage={this.state.profilePage}
-        />
-        <UserProfileContent repos={this.state.repos}/>
-      </div>
+      <ReactCSSTransitionGroup
+        transitionName="fade"
+        transitionAppear={true}
+        transitionAppearTimeout={700}
+        transitionEnterTimeout={500}
+        transitionLeaveTimeout={500}
+      >
+        <div style={{ margin: "0 auto", maxWidth: 1020, marginTop: 30}}>
+          <UserProfileHeader
+            avatarUrl={this.state.avatarUrl}
+            name={this.state.name}
+            username={this.state.username}
+            bio={this.state.bio}
+            company={this.state.company}
+            location={this.state.location}
+            blog={this.state.blog}
+            followers={this.state.followers}
+            following={this.state.following}
+            reposCount={this.state.reposCount}
+            profilePage={this.state.profilePage}
+          />
+          <UserProfileContent repos={this.state.repos}/>
+        </div>
+      </ReactCSSTransitionGroup>
     );
   }
 }

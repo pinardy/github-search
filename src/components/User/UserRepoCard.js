@@ -6,12 +6,27 @@ import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-// import StarIcon from "@material-ui/icons/Star";
+
+import { ReactComponent as StarIcon} from "./../../assets/star.svg";
+import { ReactComponent as ForkIcon}  from "./../../assets/repo-forked.svg";
 
 const styles = {
   card: {
     maxWidth: "100%",
     marginTop: 30
+  },
+  repoFooter: {
+    display: "flex", 
+    flexDirection: "row", 
+    marginTop: 10, 
+    alignItems: "center"
+  },
+  repoFooterMargin: {
+    display: "flex", 
+    marginRight: 12
+  },
+  iconMargin: {
+    marginRight: 3
   }
 };
 
@@ -32,15 +47,16 @@ function UserRepoCard(props) {
           </Typography>
           {repo.description}
 
-          <div style={{ display: "flex", flexDirection: "row", marginTop: 10 }}>
-            <div>
-              {repo.language}
-            </div>
-            {/* <div>
-              <StarIcon className={classes.icon} />
+          <div className={classes.repoFooter}>
+            <small style={{ marginRight: 12}}>{repo.language}</small>
+            <div className={classes.repoFooterMargin}>
+              <StarIcon className={classes.iconMargin}/>
               {repo.stargazers_count}
-              </div>
-            <div>{repo.forks_count}</div> */}
+            </div>
+            <div className={classes.repoFooterMargin}>
+              <ForkIcon className={classes.iconMargin}/>
+              {repo.forks_count}
+            </div>
           </div>
         </CardContent>
       </CardActionArea>

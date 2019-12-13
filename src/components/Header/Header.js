@@ -12,7 +12,8 @@ import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({
   root: {
-    width: "100%"
+    width: "100%",
+    cursor: "pointer"
   },
   grow: {
     flexGrow: 1

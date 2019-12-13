@@ -17,7 +17,7 @@ const styles = () => ({
     alignItems: "flex-start",
     alignContent: "space-between",
     backgroundColor: "#efefef",
-    padding: `20px 10px 10px 10px`
+    padding: `20px 20px 10px 20px`
   },
   imgLogo: {
     marginRight: "20px"
@@ -97,8 +97,6 @@ function UserProfileHeader(props) {
         <div
           style={{
             display: "flex",
-            flexDirection: "row",
-            justifyContent: "end"
           }}
         >
           <div className={classes.userInfo}>
