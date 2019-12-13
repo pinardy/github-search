@@ -12,7 +12,6 @@ import BlogIcon from "@material-ui/icons/Link";
 
 const styles = () => ({
   paper: {
-    margin: "15px 150px 15px 150px",
     display: "flex",
     flexDirection: "row",
     alignItems: "flex-start",
@@ -77,29 +76,29 @@ function UserProfileHeader(props) {
         <Typography style={{ paddingBottom: "10px" }}>{bio}</Typography>
 
         <>
-          <div className={classes.iconContainer}>
+          {company ? <div className={classes.iconContainer}>
             <CompanyIcon className={classes.icon} />
             <Typography>{company}</Typography>
-          </div>
+          </div>: null}
 
-          <div className={classes.iconContainer}>
+          {location ? <div className={classes.iconContainer}>
             <LocationIcon className={classes.icon} />
             <Typography>{location}</Typography>
-          </div>
+          </div>: null}
 
-          <div className={classes.iconContainer}>
+          {blog ? <div className={classes.iconContainer}>
             <BlogIcon className={classes.icon} />
             <Typography>
               <a href={blog}>{blog}</a>
             </Typography>
-          </div>
+          </div> : null}
         </>
 
         <div
           style={{
             display: "flex",
             flexDirection: "row",
-            justifyContent: "start"
+            justifyContent: "end"
           }}
         >
           <div className={classes.userInfo}>

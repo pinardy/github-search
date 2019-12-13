@@ -40,26 +40,31 @@ const Header = props => {
   const { classes, history } = props;
 
   return (
-    <AppBar
-      position="static"
-      className={classes.root}
-      onClick={() => routeToHome(history)}
-    >
-      <Toolbar className={classes.headerBackground}>
-        <img src={GithubLogo} alt="GithubLogo" width="50" height="50" />
-        <Typography
-          className={classes.title}
-          variant="title"
-          color="inherit"
-          noWrap
-          style={{marginLeft: 5}}
+    <div style={{ backgroundColor: "black" }}>
+      <div style={{ margin: "0 auto", maxWidth: 1020}}>
+        <AppBar
+          position="static"
+          className={classes.root}
+          elevation={0} // Removes box-shadow
+          onClick={() => routeToHome(history)}
         >
-          Github User Search
-        </Typography>
-        <div className={classes.grow} />
-        <Search />
-      </Toolbar>
-    </AppBar>
+          <Toolbar className={classes.headerBackground}>
+            <img src={GithubLogo} alt="GithubLogo" width="50" height="50" />
+            <Typography
+              className={classes.title}
+              variant="title"
+              color="inherit"
+              noWrap
+              style={{marginLeft: 5}}
+            >
+              Github User Search
+            </Typography>
+            <div className={classes.grow} />
+            <Search />
+          </Toolbar>
+        </AppBar>
+      </div>
+    </div>
   );
 };
 

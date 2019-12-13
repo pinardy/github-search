@@ -7,7 +7,6 @@ import UserRepoCard from "./UserRepoCard";
 
 const styles = () => ({
   repoCard: {
-    margin: "15px 150px 15px 150px",
     justifyContent: "center",
     flexDirection: "column",
     alignItems: "flex-start",

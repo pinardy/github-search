@@ -15,12 +15,16 @@ import { updateVisitedUser } from "../../actions/userActions";
 
 const styles = {
   card: {
+    display: "flex",
     maxWidth: 345,
-    marginTop: 30
+    marginTop: 30,
+    marginLeft: 10, 
+    marginRight: 10, 
   },
   flexStyle: {
-    display: "flex",
-    justifyContent: "center"
+    flexGrow: 1,
+    justifyContent: "center", 
+    flexBasis: "33%"
   }
 };
 
@@ -43,8 +47,8 @@ function UserCard(props) {
         }}
       >
         <CardActionArea>
-          <CardContent>
-            <img src={user.avatar_url} height="80" width="80" alt="new" />
+          <CardContent style={{ display: "flex" }}>
+            <img src={user.avatar_url} height="80" width="80" alt="new" style={{ marginRight: 10 }}/>
             <Typography gutterBottom variant="h6">
               {user.login}
             </Typography>
