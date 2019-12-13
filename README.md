@@ -1,10 +1,11 @@
 # Github User Search
 
+https://github-search-c73dc.firebaseapp.com/
 
 
 ## Background
 
-I am creating this ReactJS application to practise my ReactJS knowledge. This application consumes the [Github API](https://developer.github.com/v3/)
+This ReactJS application is created for practising my ReactJS knowledge. This application consumes the [Github API](https://developer.github.com/v3/).
 
 ## Instructions
 
@@ -28,7 +29,6 @@ This starts the app in your browser at http://localhost:3000/.
 
 ## Bonus points
 
-- [ ] The application is deployed on [AWS](https://aws.amazon.com) instead of [Heroku](http://heroku.com) or [Now](https://zeit.co/now) or [Firebase](https://firebase.google.com/)
 - [ ] The application supports IE10 and/or Android native browser (Chrome 30.0)
 - [ ] The pages are server-side rendered and are cached in the server
 - [ ] All pages' URL is reusable - meaning it can be copied and pasted on different browser and still shows the same result
